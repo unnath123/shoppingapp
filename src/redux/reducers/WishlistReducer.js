@@ -1,14 +1,13 @@
 import React from 'react'
-import { ADDTOCART, DELETEFROMCART, CHECKOUT} from '../actions/actionTypes'
-
+import { ADDTOWLIST,REMOVEFROMWLIST } from '../actions/actionTypes';
 
 const initialState = [];
 
-const CartReducer = (state = initialState , actions) =>{
+const WishlistReducer = (state = initialState , actions) =>{
     switch (actions.type) {
-        case ADDTOCART:
+        case ADDTOWLIST:
             return [...state, actions.payload]
-        case DELETEFROMCART:
+        case REMOVEFROMWLIST:
             return state.filter((ele)=>{
                 return ele.id!==actions.payload
             })
@@ -16,4 +15,4 @@ const CartReducer = (state = initialState , actions) =>{
     }
 }
 
-export default CartReducer;
+export default WishlistReducer;
